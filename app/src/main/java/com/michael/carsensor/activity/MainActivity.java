@@ -156,7 +156,7 @@ public class MainActivity extends Activity implements SensorHelper.OnSensorChang
         final float x = values[0];
         final float y = values[1];
         final float z = values[2];
-        final long timeline = System.currentTimeMillis();
+        final String timeline = TimeHelper.getMonthDateStr(System.currentTimeMillis());
         Thread thread = new Thread() {
             //java.lang.OutOfMemoryError: pthread_create (stack size 16384 bytes) failed: Try again
             //通过线程池及时间频繁度来减少OOM的发生
@@ -191,7 +191,7 @@ public class MainActivity extends Activity implements SensorHelper.OnSensorChang
                     bean.setX(cursor.getFloat(cursor.getColumnIndex("x")));
                     bean.setY(cursor.getFloat(cursor.getColumnIndex("y")));
                     bean.setZ(cursor.getFloat(cursor.getColumnIndex("z")));
-                    bean.setTimeline(cursor.getLong(cursor.getColumnIndex("timeline")));
+                    bean.setTimeline(cursor.getString(cursor.getColumnIndex("timeline")));
                     data.add(bean);
                 }
                 cursor.close();

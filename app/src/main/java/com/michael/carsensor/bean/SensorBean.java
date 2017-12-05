@@ -6,7 +6,8 @@ public class SensorBean {
     private float x;
     private float y;
     private float z;
-    private long timeline;
+    private long timeStamp;
+    private String timeline;
 
     public int getType() {
         return type;
@@ -40,12 +41,19 @@ public class SensorBean {
         this.z = z;
     }
 
-    public long getTimeline() {
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getTimeline() {
         return timeline;
     }
 
-    public void setTimeline(long timeline) {
+    public void setTimeline(String timeline) {
         this.timeline = timeline;
     }
-
 }
