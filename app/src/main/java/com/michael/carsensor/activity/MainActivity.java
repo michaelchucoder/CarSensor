@@ -14,7 +14,12 @@ import android.widget.Toast;
 
 import com.michael.carsensor.R;
 import com.michael.carsensor.bean.SensorBean;
-import com.michael.carsensor.helper.*;
+import com.michael.carsensor.helper.DbHelper;
+import com.michael.carsensor.helper.ExcelHelper;
+import com.michael.carsensor.helper.RepeatHelper;
+import com.michael.carsensor.helper.ScreenListener;
+import com.michael.carsensor.helper.SensorHelper;
+import com.michael.carsensor.helper.TimeHelper;
 import com.michael.carsensor.helper.WakeLocker;
 
 import java.util.ArrayList;
@@ -27,8 +32,16 @@ public class MainActivity extends Activity implements SensorHelper.OnSensorChang
     private SensorHelper accelerometerHelper;
     private SensorHelper orientationHelper;
     private TextView accelerometerX, accelerometerY, accelerometerZ;
+    private TextView tvMaxX, tvMaxY, tvMaxZ;
     private TextView orientationA, orientationB, orientationC;
     private ExecutorService executorService;
+
+    private float accMaxX = 0f;
+    private float accMinX = 0f;
+    private float accMaxY = 0f;
+    private float accMinY = 0f;
+    private float accMaxZ = 0f;
+    private float accMinZ = 0f;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +53,15 @@ public class MainActivity extends Activity implements SensorHelper.OnSensorChang
         wakeLocker.acquire();
         accelerometerHelper = new SensorHelper(this, Sensor.TYPE_ACCELEROMETER);
         orientationHelper = new SensorHelper(this, Sensor.TYPE_ORIENTATION);
-        accelerometerX = (TextView) findViewById(R.id.main_txtAccelerometerX);
-        accelerometerY = (TextView) findViewById(R.id.main_txtAccelerometerY);
-        accelerometerZ = (TextView) findViewById(R.id.main_txtAccelerometerZ);
-        orientationA = (TextView) findViewById(R.id.main_txtOrientationA);
-        orientationB = (TextView) findViewById(R.id.main_txtOrientationB);
-        orientationC = (TextView) findViewById(R.id.main_txtOrientationC);
+        accelerometerX = findViewById(R.id.main_txtAccelerometerX);
+        accelerometerY = findViewById(R.id.main_txtAccelerometerY);
+        accelerometerZ = findViewById(R.id.main_txtAccelerometerZ);
+        tvMaxX = findViewById(R.id.tvMaxX);
+        tvMaxY = findViewById(R.id.tvMaxY);
+        tvMaxZ = findViewById(R.id.tvMaxZ);
+        orientationA = findViewById(R.id.main_txtOrientationA);
+        orientationB = findViewById(R.id.main_txtOrientationB);
+        orientationC = findViewById(R.id.main_txtOrientationC);
         executorService = Executors.newCachedThreadPool();
     }
 
@@ -89,6 +105,19 @@ public class MainActivity extends Activity implements SensorHelper.OnSensorChang
 
     @Override
     public void onSensorChanged(Sensor sensor, float[] values) {
+        float x = values[0];
+        float y = values[1];
+        float z = values[2];
+
+        accMaxX = x > accMaxX ? x : accMaxX;
+        accMinX = x < accMinX ? x : accMinX;
+
+        accMaxY = y > accMaxY ? y : accMaxY;
+        accMinY = y < accMinY ? y : accMinY;
+
+        accMaxZ = z > accMaxZ ? z : accMaxZ;
+        accMinZ = z < accMinZ ? z : accMinZ;
+
         int sensorType = sensor.getType();
         showDataToView(sensorType, values);
         saveDataToDb(sensorType, values);
@@ -107,9 +136,13 @@ public class MainActivity extends Activity implements SensorHelper.OnSensorChang
     }
 
     private void showAccelerometerDataToView(float x, float y, float z) {
-        accelerometerX.setText("X轴：" + x + "米每平方秒");
-        accelerometerY.setText("Y轴：" + y + "米每平方秒");
-        accelerometerZ.setText("Z轴：" + z + "米每平方秒");
+        accelerometerX.setText("X轴：" + x + " m/s²");
+        accelerometerY.setText("Y轴：" + y + " m/s²");
+        accelerometerZ.setText("Z轴：" + z + " m/s²");
+
+        tvMaxX.setText(" 最大：" + accMaxX + "  最小：" + accMinX);
+        tvMaxY.setText(" 最大：" + accMaxY + "  最小：" + accMinY);
+        tvMaxZ.setText(" 最大：" + accMaxZ + "  最小：" + accMinZ);
     }
 
     private void showOrientationDataToView(float x, float y, float z) {
