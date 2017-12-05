@@ -13,11 +13,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/holo_orange_dark"
             android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:text="加速度传感器"
-            android:textColor="#458cf5"
-            android:textSize="20sp" />
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,36 +32,40 @@
                 android:layout_height="wrap_content"
                 android:text="x"
                 android:textColor="#458cf5"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/main_txtAccelerometerY"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtAccelerometerX"
+                android:layout_marginTop="10dp"
                 android:text="y"
                 android:textColor="#458cf5"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/main_txtAccelerometerZ"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtAccelerometerY"
+                android:layout_marginTop="10dp"
                 android:text="z"
                 android:textColor="#458cf5"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/holo_orange_dark"
             android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:text="方向传感器"
-            android:textColor="#458cf5"
-            android:textSize="20sp" />
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -72,60 +78,86 @@
                 android:layout_height="wrap_content"
                 android:text="a"
                 android:textColor="#458cf5"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/main_txtOrientationB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtOrientationA"
+                android:layout_marginTop="10dp"
                 android:text="b"
                 android:textColor="#458cf5"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/main_txtOrientationC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtOrientationB"
+                android:layout_marginTop="10dp"
                 android:text="c"
                 android:textColor="#458cf5"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="startCollectData"
-        android:text="开始收集数据"
-        android:textColor="#458cf5"
-        android:textSize="18sp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startCollectData"
+            android:text="收集数据"
+            android:textColor="#458cf5"
+            android:textSize="12sp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="stopCollectData"
+            android:text="停止收集"
+            android:textColor="#458cf5"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:onClick="stopCollectData"
-        android:text="停止收集数据"
-        android:textColor="#458cf5"
-        android:textSize="18sp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:onClick="clearData"
         android:text="清空数据"
         android:textColor="#458cf5"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="exportExcel"
-        android:text="导出数据到Excel"
-        android:textColor="#458cf5"
-        android:textSize="18sp" />
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:onClick="exportExcel"
+            android:text="导出到Excel"
+            android:textColor="#458cf5"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

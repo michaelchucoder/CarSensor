@@ -164,9 +164,9 @@ public class ExcelHelper {
             }
         }
         // 保存文档
-        String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tmp";
+        String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/autoFile";
         new File(dirPath).mkdirs();
-        File file = new File(dirPath, "sensor_test.xls");
+        File file = new File(dirPath, "car_sensor_log.xls");
         FileOutputStream fos;
         if (!file.exists()) {
             file.createNewFile();
@@ -178,8 +178,8 @@ public class ExcelHelper {
     }
 
     public static void deleteExcel() {
-        String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tmp";
-        File file = new File(dirPath, "sensor_test.xls");
+        String dirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/autoFile";
+        File file = new File(dirPath, "car_sensor_log.xls");
         file.delete();
     }
 
