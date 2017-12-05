@@ -16,7 +16,7 @@
             android:background="@android:color/darker_gray"
             android:gravity="center"
             android:text="加速度传感器"
-            android:textColor="#0066CC"
+            android:textColor="#458cf5"
             android:textSize="20sp" />
 
         <RelativeLayout
@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="x"
-                android:textColor="#0066CC"
+                android:textColor="#458cf5"
                 android:textSize="20sp" />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtAccelerometerX"
                 android:text="y"
-                android:textColor="#0066CC"
+                android:textColor="#458cf5"
                 android:textSize="20sp" />
 
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtAccelerometerY"
                 android:text="z"
-                android:textColor="#0066CC"
+                android:textColor="#458cf5"
                 android:textSize="20sp" />
 
         </RelativeLayout>
@@ -58,7 +58,7 @@
             android:background="@android:color/darker_gray"
             android:gravity="center"
             android:text="方向传感器"
-            android:textColor="#0066CC"
+            android:textColor="#458cf5"
             android:textSize="20sp" />
 
         <RelativeLayout
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="a"
-                android:textColor="#0066CC"
+                android:textColor="#458cf5"
                 android:textSize="20sp" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtOrientationA"
                 android:text="b"
-                android:textColor="#0066CC"
+                android:textColor="#458cf5"
                 android:textSize="20sp" />
 
             <TextView
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/main_txtOrientationB"
                 android:text="c"
-                android:textColor="#0066CC"
+                android:textColor="#458cf5"
                 android:textSize="20sp" />
 
         </RelativeLayout>
@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:onClick="startCollectData"
         android:text="开始收集数据"
-        android:textColor="#0066CC"
+        android:textColor="#458cf5"
         android:textSize="18sp" />
 
     <Button
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:onClick="stopCollectData"
         android:text="停止收集数据"
-        android:textColor="#0066CC"
+        android:textColor="#458cf5"
         android:textSize="18sp" />
 
     <Button
@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:onClick="clearData"
         android:text="清空数据"
-        android:textColor="#0066CC"
+        android:textColor="#458cf5"
         android:textSize="18sp" />
 
     <Button
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:onClick="exportExcel"
         android:text="导出数据到Excel"
-        android:textColor="#0066CC"
+        android:textColor="#458cf5"
         android:textSize="18sp" />
 
 </LinearLayout>

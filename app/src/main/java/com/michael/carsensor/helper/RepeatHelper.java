@@ -1,7 +1,7 @@
 package com.michael.carsensor.helper;
 
 public class RepeatHelper {
-    private static final long DEFAULT_TIME_MILLIS = 800;//����
+    private static final long DEFAULT_TIME_MILLIS = 800;
     private static long lastTimeMillis = 0L;
 
     public static boolean isFastDoubleAction(long maxTimeMillis) {
