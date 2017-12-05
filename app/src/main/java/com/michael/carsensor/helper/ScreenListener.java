@@ -17,11 +17,6 @@ public class ScreenListener {
         mScreenReceiver = new ScreenBroadcastReceiver();
     }
 
-    /**
-     * ��ʼ������Ļ״̬
-     *
-     * @param listener
-     */
     public void start(ScreenStateListener listener) {
         mScreenStateListener = listener;
         IntentFilter filter = new IntentFilter();
@@ -32,9 +27,6 @@ public class ScreenListener {
         initScreenState();
     }
 
-    /**
-     * ��ʼ����Ļ״̬
-     */
     private void initScreenState() {
         if (mScreenStateListener == null) {
             throw new IllegalArgumentException("listener is null");
@@ -48,16 +40,10 @@ public class ScreenListener {
         }
     }
 
-    /**
-     * ֹͣscreen״̬����
-     */
     public void stop() {
         mContext.unregisterReceiver(mScreenReceiver);
     }
 
-    /**
-     * ��Ļ״̬�㲥������
-     */
     private class ScreenBroadcastReceiver extends BroadcastReceiver {
         private String action = null;
 
@@ -75,24 +61,12 @@ public class ScreenListener {
 
     }
 
-    /**
-     * �ص��ӿ�
-     */
     public interface ScreenStateListener {
 
-        /**
-         * ��Ļ�ѵ���
-         */
         void onScreenOn();
 
-        /**
-         * ��Ļ��Ϩ��
-         */
         void onScreenOff();
 
-        /**
-         * ��Ļ�ѽ���
-         */
         void onUserPresent();
 
     }

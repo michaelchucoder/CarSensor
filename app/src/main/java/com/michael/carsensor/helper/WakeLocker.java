@@ -34,7 +34,7 @@ public class WakeLocker {
     }
 
     public static void keepScreenBright(Activity activity) {
-        //������setContentView()֮ǰ����
+
         activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
